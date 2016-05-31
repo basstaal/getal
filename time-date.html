@@ -1,0 +1,24 @@
+<dom-module id="time-date">
+
+<template>
+	<table border="0">
+        <tr>
+        <td><p id="time"></p></td>
+        </tr>
+        </table>
+</template>
+
+<script>
+Polymer({
+      is: "time-date"
+    });
+
+Function time(){
+	var time = new Date();
+console.log(
+    ("0" + time.getHours()).slice(-2)   + ":" + 
+    ("0" + time.getMinutes()).slice(-2) + ":" + 
+    ("0" + time.getSeconds()).slice(-2));
+}
+</script>
+</dom-module>
