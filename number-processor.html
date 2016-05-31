@@ -1,0 +1,52 @@
+<link rel="import"  href="https://polygit2.appspot.com/components/polymer/polymer.html">
+<dom-module id="number-processor">
+
+<template>
+	<table border="0">
+        <tr>
+        <td><input type="text" id="field1" value="Vul een getal in" onclick="this.value='';" /></td>
+        </tr>
+        <tr>
+        <td><input type="button" id="button1" value="Hoe laat is het?" onclick="startTime()"/></td>
+        </tr>
+        <tr>
+        <td><select name="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+</select></td>
+        </tr>
+        </table>	
+</template>
+
+<script>
+Polymer({
+      is: "time-date"
+    });
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('timedisplay').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};
+    return i;
+}
+
+</script>
+<style>
+#timedisplay {
+	background: yellow;
+	font-weight: bold;
+}
+</style>;
+</dom-module>
